@@ -1,40 +1,26 @@
-import './App.css';
-import Button from './Button';
-import React, { useState } from 'react';
+import React from 'react';
+import Sidebar from './components/Sidebar';
+import Header from './components/Header';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Users from './pages/Users';
+import About from './pages/About';
 
 function App() {
-  const name = "Thanawat Klomkliew";
-  const [count, setCount] = useState(0);
-
-  const employee = [
-    { name: "AAA", email: "aaa@gmail.com", age: 19 },
-    { name: "BBB", email: "bbb@gmail.com", age: 20 },
-    { name: "CCC", email: "ccc@gmail.com", age: 21 }
-  ];
-  console.log(employee);
-
   return (
-    <div className='App'>
-      <h1>{count}</h1>
-      <button onClick={() => setCount(count + 1)}> + </button>
-      <button onClick={() => setCount(count - 1)}> - </button>
-
-
-      <ul>
-        {employee.map((em, index) => (
-          <li key={index}>
-            ชื่อพนักงาน : {em.name} | อีเมล์ : {em.email} | อายุ : {em.age}
-          </li>
-        ))}
-      </ul>
-      <h1>
-        Hello {name}
-      </h1>
-      <h5>
-        <Button text="OK" />
-        <Button text="Remove" />
-      </h5>
-    </div>
+    <BrowserRouter>
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-1">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
