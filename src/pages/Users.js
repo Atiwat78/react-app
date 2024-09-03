@@ -2,12 +2,28 @@ import React, { useState, useEffect } from 'react';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(res => res.json())
-      .then(data => setUsers(data));
+    fetch('http://localhost:5000/api/users')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => setUsers(data))
+      .catch((error) => setError(error.message));
   }, []);
+
+  if (error) {
+    return (
+      <div className="p-4">
+        <h1 className="text-2xl font-bold mb-4">Error</h1>
+        <p className="text-red-600">{error}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="p-4">
@@ -29,8 +45,10 @@ const Users = () => {
               <td className="px-5 py-3 border-b">{user.id}</td>
               <td className="px-5 py-3 border-b">{user.name}</td>
               <td className="px-5 py-3 border-b">{user.email}</td>
-              <td className="px-5 py-3 border-b">{user.phone}</td>
-              <td className="px-5 py-3 border-b">{`${user.address.street}, ${user.address.city}`}</td>
+              <td className="px-5 py-3 border-b">{user.phone || 'N/A'}</td>
+              <td className="px-5 py-3 border-b">
+                {user.address ? `${user.address.street}, ${user.address.city}` : 'N/A'}
+              </td>
             </tr>
           ))}
         </tbody>
