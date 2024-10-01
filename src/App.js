@@ -9,6 +9,7 @@ import About from './pages/About';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import NotFoundPage from './pages/Notpage';
+import Account from './pages/Account';
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -39,18 +40,22 @@ const LayoutAdmin = () => {
 function App() {
   return (
     <AuthProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/" element={<Login />} />
-        <Route element={<LayoutAdmin />} />
-        
-      <Route path="*" element={<NotFoundPage />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<LayoutAdmin />} />
+          
+          <Route element={<LayoutAdmin />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/account" element={<Account />} />
+          </Route>
+          
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
     </AuthProvider>
   );
 }
