@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../AuthProvider';
 
 function Login() {
     const { login } = useAuth();
@@ -14,7 +14,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            const res = await axios.post('http://localhost:4001/login', {
+            const res = await axios.post('http://localhost:4000/login', {
                 email,
                 password
             }, {

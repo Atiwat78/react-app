@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, BrowserRouter, Routes, Outlet, Navigate, useLocation } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
+import { AuthProvider, useAuth } from './AuthProvider';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Dashboard from './pages/Dashboard';
@@ -10,6 +10,8 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import NotFoundPage from './pages/Notpage';
 import Account from './pages/Account';
+import MyBlog from './pages/Myblog';
+import AddBlog from './pages/Addblog';
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -51,6 +53,8 @@ function App() {
             <Route path="/users" element={<Users />} />
             <Route path="/about" element={<About />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/myblog" element={<MyBlog />} />
+            <Route path="/new-post" element={<AddBlog />} />
           </Route>
           
           <Route path="*" element={<NotFoundPage />} />

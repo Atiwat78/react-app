@@ -1,16 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import LogoutButton from "../pages/Logout";
 
 function Header() {
-  return (
-    <header className="bg-teal-500 shadow p-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold text-white">ระบบบริหารจัดการ</h1>
-      <div>
-        <Link to="/login" className="text-gray-700 hover:text-gray-900 mr-4">Login</Link>
-        <button className="text-gray-700 hover:text-gray-900">Logout</button>
-      </div>
-    </header>
-  );
+    return ( 
+        <header className="bg-teal-500 shadow p-4 flex justify-between">
+            <h1 className="text-x1 font-bold">KSU Computer Engineering</h1>
+            <div>
+                <LogoutButton />
+            </div>
+        </header>     
+    );
 }
 
 export default Header;

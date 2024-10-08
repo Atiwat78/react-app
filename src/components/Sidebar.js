@@ -12,6 +12,8 @@ export default function Sidebar() {
         <Link to="/users" className="block py-3 px-4 hover:bg-gray-700">Users</Link>
         <Link to="/about" className="block py-3 px-4 hover:bg-gray-700">About Us</Link>
         <Link to="/account" className="block py-3 px-4 hover:bg-gray-700">Account</Link>
+        <Link to="/myblog" className="block py-3 px-4 hover:bg-gray-700">จัดการโพสต์</Link>
+        
       </nav>
     </div>
   );
