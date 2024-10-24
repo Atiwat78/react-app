@@ -5,7 +5,7 @@ const Users = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/users')
+    fetch('http://localhost:4000/api/users')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

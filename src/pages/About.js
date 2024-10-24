@@ -12,9 +12,9 @@ const About = () => {
               alt="Profile"
               className="w-32 h-32 rounded-full border-4 border-teal-500 mb-4"
             />
-            <h2 className="text-2xl font-semibold mb-2">Thanawat Klomkliew</h2>
-            <p className="text-lg text-gray-700 mb-2">นามสกุล: Klomkliew</p>
-            <p className="text-lg text-gray-700 mb-4">รหัสนักศึกษา: 1234567890</p>
+            <h2 className="text-2xl font-semibold mb-2">atiwat prebjutturat</h2>
+            <p className="text-lg text-gray-700 mb-2">prebjutturat</p>
+            <p className="text-lg text-gray-700 mb-4">1309903130673</p>
             <p className="text-sm text-gray-500"></p>
           </div>
         </div>
